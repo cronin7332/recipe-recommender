@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 
@@ -31,7 +31,7 @@ export const Home = () => {
 
     fetchRecipes();
     fetchSavedRecipes();
-  }, []);
+  }, [userID]);
 
   const saveRecipe = async (recipeID) => {
     try {
@@ -55,6 +55,7 @@ export const Home = () => {
           <li key={recipe._id}>
             <div>
               <h2>{recipe.name}</h2>
+              <h4>{recipe.description}</h4>
               <button
                 onClick={() => saveRecipe(recipe._id)}
                 disabled={isRecipeSaved(recipe._id)}

@@ -1,6 +1,7 @@
-import express from "express";
-import cors from "cors";
-import mongoose from "mongoose";
+import express from "express"
+import cors from "cors"
+import mongoose from "mongoose"
+import "dotenv/config"
 import { userRouter } from "./routes/user.js";
 import { recipesRouter } from "./routes/recipes.js";
 
@@ -12,8 +13,6 @@ app.use(cors());
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 
-mongoose.connect(
-  "mongodb+srv://cronin7332:croninMERN@recipes.4apqi2d.mongodb.net/?retryWrites=true&w=majority&appName=recipes"
-);
+mongoose.connect(process.env.MONGO_URL);
 
-app.listen(3001, () => console.log("Server started"));
+app.listen(3001, () => console.log("Server Started!"))

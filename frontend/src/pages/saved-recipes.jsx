@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 
@@ -19,7 +19,7 @@ export const SavedRecipes = () => {
     };
 
     fetchSavedRecipes();
-  }, []);
+  }, [userID]);
   return (
     <div>
       <h1>Saved Recipes</h1>
